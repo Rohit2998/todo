@@ -23,20 +23,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tz8gnkk4w(wdm+6uu-d#_a*hi4j2=wb3)zkrkt6f3=@8o3ci)%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = False
+ALLOWED_HOSTS = ["*"]
 
-ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = ["http://localhost:8080", "http://127.0.0.1:8080"]
+
+CORS_ORIGIN_WHITELIST = (
+
+    'localhost:8080',
+    'localhost:8081',
+    'localhost',
+    'localhost:8888',
+)
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8080']
+
+# ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mytodoapp.apps.MytodoappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
